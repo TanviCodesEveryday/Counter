@@ -12,7 +12,7 @@
             display: grid;
             grid-template-columns: repeat(10, 1fr);
             grid-template-rows: repeat(10, 1fr);
-            gap: 5px; /* Adds margin between blocks */
+            gap: 5px; 
             width: max-content;
             margin: 50px auto;
         }
@@ -22,25 +22,26 @@
             background-color: #000000;
             color:#F5F7F8;
             padding: 5px;
-            box-sizing: border-box; /* Ensures padding doesn't increase size */
-            cursor: pointer; /* Add a cursor to indicate it's clickable */
+            box-sizing: border-box;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
     <div id="container">
-        <!-- Creates 100 blocks with a class "block" -->
         <script>
             for (let i = 1; i <= 100; i++) {
                 const block = document.createElement('div');
                 block.classList.add('block');
                 block.innerHTML = i;
+                block.setAttribute('data-color', 'black');
                 block.onclick = function () {
-                    // Toggle between black and yellow
-                    if (this.style.backgroundColor === 'rgb(0, 0, 0)') {
+                    if (this.getAttribute('data-color') === 'black') {
                         this.style.backgroundColor = '#FCDE70'; // Yellow
+                        this.setAttribute('data-color', 'yellow');
                     } else {
                         this.style.backgroundColor = '#000000'; // Black
+                        this.setAttribute('data-color', 'black');
                     }
                 };
                 document.getElementById('container').appendChild(block);
