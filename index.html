@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mamma's Counter Grid</title>
+    <style>
+        body {
+            background-color: #F5F7F8;
+        }
+        #container {
+            display: grid;
+            grid-template-columns: repeat(10, 1fr);
+            grid-template-rows: repeat(10, 1fr);
+            gap: 5px; 
+            width: max-content;
+            margin: 50px auto;
+        }
+        .block {
+            height: 50px;
+            width: 50px;
+            background-color: #000000;
+            color:#F5F7F8;
+            padding: 5px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <script>
+            for (let i = 1; i <= 100; i++) {
+                const block = document.createElement('div');
+                block.classList.add('block');
+                block.innerHTML = i;
+                block.onclick = function () {
+                    if (this.style.backgroundColor === 'rgb(124, 147, 195)') {
+                        this.style.backgroundColor = '#000000';
+                    } else {
+                        this.style.backgroundColor = '#FCDE70';
+                    }
+                };
+                document.getElementById('container').appendChild(block);
+            }
+        </script>
+    </div>
+</body>
+</html>
